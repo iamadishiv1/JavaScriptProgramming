@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event Listener</title>
+</head>
+<body>
+    <!-- Without addEventListener -->
+    <button id="myButton" onclick="handleButtonClick()">Click Me</button>
+
+    <!-- With addEventListener -->
+    <button id="myButton2">Click Me Too</button>
+
+    <!-- addEventListener keydown and keyup -->
+     <input type="text" id="myInput" placeholder="Type something...">
+
+    <form id="myform">
+        <input type="text" id="myText" placeholder="Enter text here">
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function handleButtonClick() {
+            alert("Button clicked!");
+        }
+
+        const myButton2 = document.getElementById("myButton2");
+        myButton2.addEventListener("click", handleButtonClick);
+
+        const myInput = document.getElementById("myInput");
+        myInput.addEventListener('keydown', function(){
+            alert("Key Pressed Down");
+        });
+
+        myInput.addEventListener('keyup', function(){
+            alert("Key Released");
+        });
+
+        document.getElementById("myform").addEventListener("submit", function(event){
+            event.preventDefault(); // Prevent form submission
+            console.log("Form Submitted");
+        })
+
+    </script>
+</body>
+</html>
